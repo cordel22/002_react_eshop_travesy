@@ -8,11 +8,16 @@ constructor(props) {
     pageTitle: "Customers", 
     customersCount: 5,
     customers: [
-      { id: 1, name: "Scott", phone: "123-456", address: {city: "Edinburgh"}},
-      { id: 2, name: "Jim", phone: "789-101", address: {city: "IndianaPolis"}},
-      { id: 3, name: "Spock", phone: "121-314", address: {city: "VulcansVille"}},
-      { id: 4, name: "J-L", phone: null, address: {city: "Toulouse"}},
-      { id: 5, name: "Deanna", phone: null, address: {city: "Miami"}}
+      { id: 1, name: "Scott", phone: "123-456", address: {city: "Edinburgh"}, 
+        photo: "https://picsum.photos/id/1010/60"},
+      { id: 2, name: "Jim", phone: "789-101", address: {city: "IndianaPolis"},
+        photo: "https://picsum.photos/id/1011/60"},
+      { id: 3, name: "Spock", phone: "121-314", address: {city: "VulcansVille"},
+        photo: "https://picsum.photos/id/1012/60"},
+      { id: 4, name: "J-L", phone: null, address: {city: "Toulouse"},
+        photo: "https://picsum.photos/id/1014/60"},
+      { id: 5, name: "Deanna", phone: null, address: {city: "Miami"},
+        photo: "https://picsum.photos/id/1015/60"}
     ] };
 }
   render() {
@@ -77,6 +82,7 @@ constructor(props) {
       return (
         <tr key={cust.id}>
           <td>{cust.id}</td>
+          <td><img src={cust.photo} alt="Customer"/></td>
           <td>{cust.name}</td>
           <td>{this.getPhoneToRender(cust.phone)}</td>
           <td>{cust.address.city}</td>
