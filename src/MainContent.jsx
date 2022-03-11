@@ -11,8 +11,8 @@ constructor(props) {
       { id: 1, name: "Scott", phone: "123-456", address: {city: "Edinburgh"}},
       { id: 2, name: "Jim", phone: "789-101", address: {city: "IndianaPolis"}},
       { id: 3, name: "Spock", phone: "121-314", address: {city: "VulcansVille"}},
-      { id: 4, name: "J-L", phone: "151-617", address: {city: "Toulouse"}},
-      { id: 5, name: "Deanna", phone: "181-920", address: {city: "Miami"}}
+      { id: 4, name: "J-L", phone: null, address: {city: "Toulouse"}},
+      { id: 5, name: "Deanna", phone: null, address: {city: "Miami"}}
     ] };
 }
   render() {
@@ -24,7 +24,7 @@ constructor(props) {
           { this.state.customersCount}
         </span>
 
-        <button classNme="btn btn-info" onClick={this.onRefreshClick}>
+        <button className="btn btn-info" onClick={this.onRefreshClick}>
           Refresh
         </button>
         </h4>
@@ -45,7 +45,11 @@ constructor(props) {
                   <tr key={cust.id}>
               <td>{cust.id}</td>
               <td>{cust.name}</td>
-              <td>{cust.phone}</td>
+              <td>{cust.phone ? (
+                cust.phone):(
+              <div className="bg-warning p-2 text-center">"No Phone"</div>
+              )  }
+                </td>
               <td>{cust.address.city}</td>
             </tr>
                 )
