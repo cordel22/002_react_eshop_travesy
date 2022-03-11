@@ -10,6 +10,7 @@ import NavBar/* { NavBar } */ from "./NavBar.jsx"/* /index.js */;
 import App from './App.jsx';
 import "./index.css";
 //import App from './App';
+import "font-awesome/css/font-awesome.css"
 
 
 ReactDOM.render(
