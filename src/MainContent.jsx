@@ -22,15 +22,7 @@ constructor(props) {
     ] };
 }
 
-  customerNameStyle = (custName) => {
-    if (custName.startsWith("S")) {
-        return "green-highlight border-left";
-    } else if (custName.startsWith("J")) {
-        return "red-highlight border-right";
-    } else {
-      return {};
-    }
-  };
+  
 
   render() {
     return (
@@ -91,18 +83,38 @@ constructor(props) {
   }
 
   getCustomerRow = () => {
-    return (this.state.customers.map((cust) => {
+    return (this.state.customers.map((cust, index) => {
       return (
         <tr key={cust.id}>
           <td>{cust.id}</td>
-          <td><img src={cust.photo} alt="Customer"/></td>
-          <td className={this.customerNameStyle(cust.name)}>
+          <td><img src={cust.photo} alt="Customer"/>
+          <div>
+          <button className="btn btn-sm btn-secondary" onClick={ () => {
+              this.onChangePictureClick(cust, index);
+            }}>
+            Change Picture
+          </button></div></td>
+          <td>
             {cust.name}</td>
           <td>{this.getPhoneToRender(cust.phone)}</td>
           <td>{cust.address.city}</td>
         </tr>
       );
     }))
+  };
+
+  //  Executes when the user clicks on "Change Picture" button in the grig
+  //  Receives the "customer" object and index of the currently clisked customer
+  onChangePictureClick = (cust, index) => {
+    // console.log(cust);
+    // console.log(index);
+
+    //  get existing customers
+    var custArr = this.state.customers;
+    custArr[index].photo = "https://picsum.photos/id/104/60";
+
+    //  update :customers" arry in the state
+    this.setState({ customers: custArr });
   }
 }
 
