@@ -51,21 +51,14 @@ export default class ShoppingCart extends Component {
 
   //  Executes after constructor and render method (includes life cycle of child
   //  components, f any) of current components
-  componentDidMount() {
+  componentDidMount = async () => {
     //  fetch data from data source
     /* console.log("componentDidMount- ShoppingCart"); */
 
-    var promise = fetch("http://localhost:8000/products", { method: "GET"});
-    promise.then((response) => {
-      console.log(response);
-
-      var promise2 = response.json();
-      promise2.then((prods) => {
-        console.log(prods);
-
-        this.setState({ products: prods });
-      });
-    });
+    var response = await fetch("http://localhost:8000/products", { method: "GET"});
+    var prods = await response.json();
+    console.log(prods);
+    this.setState({ products: prods });
   }
 
   componentDidUpdate(prevProps, prevState) {
