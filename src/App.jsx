@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 //  import { Routes } from "react-router";
 
 import ReactDOM from "react-dom";
+import NoMatchPage from "./NoMatchPage.jsx";
 
 
 
@@ -19,10 +20,11 @@ export default class App extends Component {
           <BrowserRouter>
             <NavBar />
             <Routes>
-              <Route path="/" element={<Login />}/>
-              <Route path="/dashboard" element={<Dashboard />}/>
-              <Route path="/customers" element={<CustomersList />}/>
-              <Route path="/cart" element={<ShoppingCart />}/>
+              <Route path="/" exact element={<Login />}/>
+              <Route path="/dashboard" exact element={<Dashboard />}/>
+              <Route path="/customers" exact element={<CustomersList />}/>
+              <Route path="/cart" exact element={<ShoppingCart />}/>
+              <Route path="/*" element={<NoMatchPage />}/>
             </Routes>
           
           </BrowserRouter>
