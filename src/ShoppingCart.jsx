@@ -58,16 +58,21 @@ export default class ShoppingCart extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     console.log(
-      "componentDidUpdate",
+      "componentDidUpdate - ShoppingCart",
       prevProps, 
       prevState, 
       this.props,
       this.state);
   
 
-    if (prevProps.x == this.props.x) {
-      //  make http call
-    }
+    // if (prevProps.x == this.props.x) {
+    //   //  make http call
+    // }
+  }
+
+  //  Executes when the current instnce of current component is being deleted from memory
+  componentWillUnmount() {
+    console.log("componentWillUnmount - ShoppingCart")
   }
 
   handleIncrement = (product, maxValue) => {

@@ -55,4 +55,9 @@ export default class Product extends Component {
       
     );
   }
+
+  //  Executes when the current instnce of current component is being deleted from memory
+  componentWillUnmount() {
+    console.log("componentWillUnmount - Product")
+  }
 }
