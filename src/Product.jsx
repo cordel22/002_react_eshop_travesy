@@ -5,6 +5,8 @@ export default class Product extends Component {
   constructor(props) {
     super(props);
 
+    console.log("Constructor - Product");
+
     this.state = {
       product: this.props.product,
     };
@@ -17,6 +19,8 @@ export default class Product extends Component {
 
   render() {
     //  console.log(this.props);
+
+    console.log("render - Product");
 
     return (
       <div className="col-lg-6">
