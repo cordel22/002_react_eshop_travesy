@@ -4,7 +4,7 @@ export default class Login extends /* React. */Component {
 
   constructor(props) {
     super(props);
-    this.state = { email: "abc@test.com",password:"abc123" };
+    this.state = { email: "",password:"",message: "" };
   }
 
   render() {
@@ -42,10 +42,13 @@ export default class Login extends /* React. */Component {
       </div>
       {/* Password ends  */}
 
-      <div>
-        <button className="btn btn-primary" onClick={this.onLoginClick}>
+      <div className="text-right">
+        {this.state.message}
+        <button className="btn btn-primary m-1" onClick={this.onLoginClick}>
           Login
         </button>
+
+        
       </div>
       </div>
     );
@@ -54,6 +57,19 @@ export default class Login extends /* React. */Component {
   //  Executes when the user clicks on Login
   onLoginClick = () => {
     console.log(this.state);
+    if (this.state.email === "admin@test.com" && this.state.password === "admin123") {
+      //  success
+      this.setState({
+        message: <span className="text-success">Succesfully Logged-in</span>
+      });
+    } else {
+      //  error
+      this.setState({
+        message: (
+        <span className="text-danger">Invalid login, please try again</span>
+      ),
+    });
   }
+  };
 
 }
