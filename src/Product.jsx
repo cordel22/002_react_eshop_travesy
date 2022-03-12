@@ -2,17 +2,24 @@ import React, { Component } from "react";
 
 export default class Product extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      product: this.props.product,
+    };
+  }
   /* state = { x: 100 }; */
-  state = { 
-            product: this.props.product/* .id,
-            productName: this.props.product.productName,
-            price: this.props.product.price, */ };
+  // state = { 
+  //           product: this.props.product/* .id,
+  //           productName: this.props.product.productName,
+  //           price: this.props.product.price, */ };
 
   render() {
-    console.log(this.props);
+    //  console.log(this.props);
 
     return (
-      <div class="col-lg-6">
+      <div className="col-lg-6">
         <div className="card m-2">
       <div className="card-body">
       <div className="text-muted"># {this.state.product.id}
@@ -29,7 +36,7 @@ export default class Product extends Component {
       {/* card body ends here */}
 
       <div className="card-footer text-right">
-        <div class="float-left">
+        <div className="float-left">
           <span className="badge">{this.state.product.quantity}</span>
 
           <div className="btn-group">
@@ -54,6 +61,14 @@ export default class Product extends Component {
       </div>
       
     );
+  }
+
+  componentDidMount() {
+    console.log("componentDidMount - Product");
+  }
+
+  componentDidUpdate() {
+    console.log("componentDidUpdate - Product");
   }
 
   //  Executes when the current instnce of current component is being deleted from memory
