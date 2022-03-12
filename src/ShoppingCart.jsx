@@ -11,12 +11,12 @@ export default class ShoppingCart extends Component {
     //  initialization of the state
     this.state = {
       products: [
-        { id: 1, productName: "iPhone",price:8900,quantity: 0},
-        // { id: 2, productName: "Sony Camera",price:4500,quantity: 0},
-        // { id: 3, productName: "Samsung QLED TV",price:7745,quantity: 0},
-        // { id: 4, productName: "iPad Pro",price:12400,quantity: 0},
-        // { id: 5, productName: "Xbox",price:7780,quantity: 0},
-        // { id: 6, productName: "Dell Monitor",price:880,quantity: 0}
+        /* { id: 1, productName: "iPhone",price:8900,quantity: 0},
+        { id: 2, productName: "Sony Camera",price:4500,quantity: 0},
+        { id: 3, productName: "Samsung QLED TV",price:7745,quantity: 0},
+        { id: 4, productName: "iPad Pro",price:12400,quantity: 0},
+        { id: 5, productName: "Xbox",price:7780,quantity: 0},
+        { id: 6, productName: "Dell Monitor",price:880,quantity: 0} */
       ],
     };
   }
@@ -53,7 +53,19 @@ export default class ShoppingCart extends Component {
   //  components, f any) of current components
   componentDidMount() {
     //  fetch data from data source
-    console.log("componentDidMount- ShoppingCart");
+    /* console.log("componentDidMount- ShoppingCart"); */
+
+    var promise = fetch("http://localhost:8000/products", { method: "GET"});
+    promise.then((response) => {
+      console.log(response);
+
+      var promise2 = response.json();
+      promise2.then((prods) => {
+        console.log(prods);
+
+        this.setState({ products: prods });
+      });
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {
