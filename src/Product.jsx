@@ -20,7 +20,7 @@ export default class Product extends Component {
   render() {
     //  console.log(this.props);
 
-    console.log("render - Product");
+    //  console.log("render - Product");
 
     return (
       <div className="col-lg-6">

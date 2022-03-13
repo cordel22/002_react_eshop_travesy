@@ -25,7 +25,7 @@ export default class ShoppingCart extends Component {
     console.log("render - ShoppingCart");
 
     return (
-    <div className="container-fluid">
+    <div /* className="container-fluid" */>
       <h4>Shopping Cart</h4>
 
       <xyz></xyz>

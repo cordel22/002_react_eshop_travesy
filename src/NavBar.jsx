@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class NavBar extends Component {
   render() {
@@ -15,8 +16,25 @@ export default class NavBar extends Component {
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/#">Home</a>
+          <a className="nav-link active" aria-current="page" href="/">Login</a>
         </li>
+
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
+        </li>
+
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="/customers">Customers</a>
+        </li>
+
+        {/* <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="/cart">Shopping Cart</a>
+        </li> */}
+
+<li className="nav-item">
+          <Link className="nav-link active" aria-current="page" to="/cart">Shopping Cart</Link>
+        </li>
+
 
         <li className="nav-item">
           <a className="nav-link" href="/#">Link</a>
