@@ -1,3 +1,32 @@
+<!--
+
+ok, run th server from data folder
+
+first install json-server if u dont hve it:
+
+npm install json-server -g
+
+once installed, launch it on a free port, the app is set up for 8000!
+
+npx json-server --watch db.json --port=8000
+
+  \{^_^}/ hi!
+
+  Loading db.json
+  Done
+
+  Resources
+  http://localhost:5000/posts
+  http://localhost:5000/comments
+  http://localhost:5000/profile
+
+  Home
+  http://localhost:5000
+
+  Type s + enter at any time to create a snapshot of the database
+  Watching...
+ -->
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -74,7 +103,7 @@ npm install json-server -g
 json-server react-db.json --watch --port=5000
 
 
-ale funguje npx npx json-server --watch db.json --port=5000
+ale funguje npx, like this npx json-server --watch db.json --port=5000
 
   \{^_^}/ hi!
 
